@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.tabela {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+}
+
+.tabela table {
+  width: 70%;
+}
+
+.tabela svg {
+  width: 20px;
+  height: 20px;
+}
+
+.entrada {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.entrada input {
+  text-align: center;
+  height: 30px;
+  font-size: 15px;
+}
+
+.entrada svg {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+#nome {
+  width: 50%;
+}
+
+#media,
+#carga {
+  width: 20%;
+}
+
+.lixo {
+  cursor: pointer;
+}
