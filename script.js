@@ -11,11 +11,11 @@ const adicionar = () => {
     let valor = $("#valores").html();
 
     const msg = `
-      <tr id="${nome}">
+      <tr id="${nome.split(" ")[0]}">
         <td>${nome}</td>
         <td>${media}</td>
         <td>${carga}</td>
-        <td class="lixo" onclick="deletar('${nome}')">
+        <td class="lixo" onclick="deletar('${nome.split(" ")[0]}')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="red"
@@ -37,7 +37,10 @@ const adicionar = () => {
     $("#media").val("");
     $("#carga").val("");
 
-    cra[nome] = [carga.split(" ")[0] * media, parseInt(carga.split(" ")[0])];
+    cra[nome.split(" ")[0]] = [
+      carga.split(" ")[0] * media,
+      parseInt(carga.split(" ")[0]),
+    ];
     calcular();
   }
 };
@@ -45,6 +48,8 @@ const adicionar = () => {
 const deletar = (val) => {
   const valor = $("#valores").html();
   const element = $(`#${val}`).html();
+  console.log(valor);
+  console.log(element);
   $("#valores").html(valor.replace(`<tr id="${val}">` + element + "</tr>", ""));
   delete cra[val];
   calcular();
