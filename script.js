@@ -1,4 +1,3 @@
-$("#media").mask("0000.00", { reverse: true });
 $("#carga").mask("000000 h", { reverse: true });
 
 let cra = {};
@@ -67,4 +66,11 @@ const calcular = () => {
 
 $(document).ready(() => {
   $("#adicionar").click(() => adicionar());
+  $("#media").on("input", function () {
+    $(this).val(
+      $(this)
+        .val()
+        .replace(/[^0-9.]/g, "")
+    );
+  });
 });
