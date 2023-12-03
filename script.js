@@ -1,4 +1,4 @@
-$("#media").mask("0000.0", { reverse: true });
+$("#media").mask("0000.00", { reverse: true });
 $("#carga").mask("000000 h", { reverse: true });
 
 let cra = {};
@@ -51,7 +51,7 @@ const deletar = (val) => {
   calcular();
 };
 
-const calcular = (media, carga) => {
+const calcular = () => {
   if (!Object.keys(cra).length) {
     $("#cra").text("CRA:");
   } else {
