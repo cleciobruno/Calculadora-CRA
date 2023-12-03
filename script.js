@@ -52,16 +52,17 @@ const deletar = (val) => {
 };
 
 const calcular = (media, carga) => {
-  let cima = 0;
-  let baixo = 0;
-  for (let i in cra) {
-    cima += cra[i][0];
-    baixo += cra[i][1];
+  if (!Object.keys(cra).length) {
+    $("#cra").text("CRA:");
+  } else {
+    let cima = 0;
+    let baixo = 0;
+    for (let i in cra) {
+      cima += cra[i][0];
+      baixo += cra[i][1];
+    }
+    $("#cra").text(`CRA: ${(cima / baixo).toFixed(2)}`);
   }
-  console.log(cra);
-  console.log(cima);
-  console.log(baixo);
-  $("#cra").text(`CRA: ${(cima / baixo).toFixed(2)}`);
 };
 
 $(document).ready(() => {
