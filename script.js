@@ -1,6 +1,7 @@
 $("#carga").mask("000000 h", { reverse: true });
 
 let cra = {};
+let count = 0;
 
 const adicionar = () => {
   const nome = $("#nome").val();
@@ -9,13 +10,13 @@ const adicionar = () => {
 
   if (nome && media && carga) {
     let valor = $("#valores").html();
-
+    count += 1;
     const msg = `
-      <tr id="${nome.split(" ")[0]}">
+      <tr id="${count}">
         <td>${nome}</td>
         <td>${media}</td>
         <td>${carga}</td>
-        <td class="lixo" onclick="deletar('${nome.split(" ")[0]}')">
+        <td class="lixo" onclick="deletar('${count}')">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="red"
@@ -37,10 +38,7 @@ const adicionar = () => {
     $("#media").val("");
     $("#carga").val("");
 
-    cra[nome.split(" ")[0]] = [
-      carga.split(" ")[0] * media,
-      parseInt(carga.split(" ")[0]),
-    ];
+    cra[count] = [carga.split(" ")[0] * media, parseInt(carga.split(" ")[0])];
     calcular();
   }
 };
@@ -48,8 +46,6 @@ const adicionar = () => {
 const deletar = (val) => {
   const valor = $("#valores").html();
   const element = $(`#${val}`).html();
-  console.log(valor);
-  console.log(element);
   $("#valores").html(valor.replace(`<tr id="${val}">` + element + "</tr>", ""));
   delete cra[val];
   calcular();
